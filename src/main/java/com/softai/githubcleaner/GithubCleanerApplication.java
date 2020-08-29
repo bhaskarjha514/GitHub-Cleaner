@@ -9,5 +9,4 @@ public class GithubCleanerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GithubCleanerApplication.class, args);
 	}
-
 }

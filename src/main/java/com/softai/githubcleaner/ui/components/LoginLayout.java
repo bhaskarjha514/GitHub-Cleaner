@@ -1,14 +1,13 @@
 package com.softai.githubcleaner.ui.components;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.value.ValueChangeMode;
 
 import java.util.logging.Logger;
-
 
 public class LoginLayout extends VerticalLayout {
 
@@ -19,19 +18,12 @@ public class LoginLayout extends VerticalLayout {
 
     public LoginLayout(){
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
-
-        oauthToken.setValueChangeMode(ValueChangeMode.EAGER);
-        oauthToken.addValueChangeListener(textFieldStringComponentValueChangeEvent -> {
-            oauthToken.setValue(textFieldStringComponentValueChangeEvent.getValue());
-        });
-
+        oauthToken.setValueChangeMode(ValueChangeMode.LAZY);
         username.setValueChangeMode(ValueChangeMode.EAGER);
-        username.addValueChangeListener(textFieldStringComponentValueChangeEvent -> {
-           username.setValue(textFieldStringComponentValueChangeEvent.getValue());
-        });
         submitBtn.addClickListener(buttonClickEvent -> {
-            Notification.show("Authorize to GitHub for " + username.getValue());
+            UI.getCurrent().navigate("repo");
         });
+
         add(oauthToken, username, submitBtn);
     }
 }

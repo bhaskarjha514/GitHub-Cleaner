@@ -19,7 +19,7 @@ public class GitHubService {
 
         Request request = new Request.Builder()
                 .url("https://api.github.com/users/" +username + "/repos/1")
-                .addHeader("Authorization", "token 3cc56689ff1e9d21b115725cca1d9d4fe7d74080")
+                .addHeader("Authorization", "token <goes here>")
                 .build();
         try {
             Response response = client.newCall(request).execute();
